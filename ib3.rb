@@ -39,6 +39,14 @@ class Image
           distance = n
           # checking if column to LEFT exists
           if col_index-distance >= 0
+            if col_index-distance < distance
+              x = 1
+              while col_index-distance > 0
+                @new_ary[row_index][col_index-x] = 1
+                x = x-1
+              end
+            end
+          else
             @new_ary[row_index][col_index-distance] = 1
               while distance > 1
                 @new_ary[row_index][col_index-(distance-1)] = 1
