@@ -18,6 +18,7 @@ class Image
   def blur_image2
     # creating copy of grid
     # @new_ary = Marshal.load( Marshal.dump(@grid) )
+    # marshalling totally works, but on larger files it will be data intensive
 
     @new_ary = []
     @grid.each do |row|
