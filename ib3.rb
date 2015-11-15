@@ -15,6 +15,7 @@ class Image
   end
 
   def blur_image(distance)
+    n = distance.to_i
 
     @new_ary = []
     @grid.each do |row|
@@ -22,81 +23,44 @@ class Image
       @new_ary.push(row_copy)
     end
 
-    n = distance
-
+    n.times do
     @grid.each_with_index do |row, row_index|
       row.each_with_index do |pixel, col_index|
+
         if pixel == 1
           # checking if column to RIGHT exists
-          if col_index+distance < row.length
-            @new_ary[row_index][col_index+distance] = 1
-              while distance > 1
-                @new_ary[row_index][col_index+(distance-1)] = 1
-                distance = distance - 1
-              end  
+          if col_index+1 < row.length
+            @new_ary[row_index][col_index+1] = 1
           end
-          
-          distance = n
           # checking if column to LEFT exists
-          if col_index-distance >= 0
-            if col_index-distance < distance
-              x = 1
-              while col_index-distance > 0
-                @new_ary[row_index][col_index-x] = 1
-                x = x-1
-              end
-            end
-          else
-            @new_ary[row_index][col_index-distance] = 1
-              while distance > 1
-                @new_ary[row_index][col_index-(distance-1)] = 1
-                distance = distance - 1
-              end  
+          if col_index-1 >= 0
+            @new_ary[row_index][col_index-1] = 1
           end
-          
-          distance = n
           # checking if row BELOW exists
-          if row_index+distance < @grid.length
-            @new_ary[row_index+distance][col_index] = 1
-              while distance > 1
-                @new_ary[row_index+(distance-1)][col_index] = 1
-                distance = distance - 1
-              end
+          if row_index+1 < @grid.length
+            @new_ary[row_index+1][col_index] = 1
           end
-          
-          distance = n
           # checking if row ABOVE exists
-          if row_index-distance >= 0
-            @new_ary[row_index-distance][col_index] = 1
-            while distance > 1
-              @new_ary[row_index-(distance-1)][col_index] = 1
-              distance = distance - 1
-            end
+          if row_index-1 >= 0
+            @new_ary[row_index-1][col_index] = 1
           end
-
-        end
-      end
-
-    end
-
+        end # if pixel..
+      end #row.each
+    end # @grid.each
+    end # n.times
     @grid = @new_ary
 
+  end #method end
 
-  end
-
-
-
-
-end
-
+end #class end
 
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 1, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ])
 
 image.output_image

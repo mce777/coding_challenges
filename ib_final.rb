@@ -27,6 +27,7 @@ class Image
     end
 
     # looping through new_ary instead of grid
+
     @grid.each_with_index do |row, row_index|
       row.each_with_index do |pixel, col_index|
         if pixel == 1
