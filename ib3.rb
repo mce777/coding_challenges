@@ -24,7 +24,6 @@ class Image
       @new_ary.push(row_copy)
     end
 
-
     @grid.each_with_index do |row, row_index|
       row.each_with_index do |pixel, col_index|
 
@@ -49,23 +48,31 @@ class Image
       end #row.each
     end # @grid.each
 
-
     @grid = @new_ary
     end # n.times
   end #method end
 
 end #class end
 
+# image = Image.new([
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 1, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0]
+# ])
+
 image = Image.new([
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
 ])
 
 image.output_image
-puts "- - - -"
-image.blur_image(2)
+puts "- - - - -"
+image.blur_image(3)
 image.output_image
