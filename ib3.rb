@@ -17,13 +17,14 @@ class Image
   def blur_image(distance)
     n = distance.to_i
 
+    n.times do
     @new_ary = []
     @grid.each do |row|
       row_copy = row.clone
       @new_ary.push(row_copy)
     end
 
-    n.times do
+
     @grid.each_with_index do |row, row_index|
       row.each_with_index do |pixel, col_index|
 
@@ -47,9 +48,10 @@ class Image
         end # if pixel..
       end #row.each
     end # @grid.each
-    end # n.times
-    @grid = @new_ary
 
+
+    @grid = @new_ary
+    end # n.times
   end #method end
 
 end #class end
