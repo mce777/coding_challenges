@@ -34,14 +34,14 @@ end
 
 def reverse_list(list)
     new_list = nil
-    #something...
+    @data = list
 
     while list
-        #???
+        new_list.add(list.value)
         list = list.next_node
     end
 
-    return list  #???
+    return new_list
 end
 
 def print_values(list_node)
