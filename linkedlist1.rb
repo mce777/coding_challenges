@@ -37,7 +37,7 @@ def reverse_list(list)
     @data = list
 
     while list
-        new_list = LinkedListNode.new(list.value, @data)
+        new_list = LinkedListNode.new(list.value, new_list)
         list = list.next_node
     end
 
