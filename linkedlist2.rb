@@ -34,10 +34,10 @@ end
 
 def reverse_list(list)
     new_list = nil
-    @data = list
+    stack = Stack.new
 
     while list
-        new_list = LinkedListNode.new(list.value, @data)
+        new_list = stack.push(list.value)
         list = list.next_node
     end
 
