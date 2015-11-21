@@ -41,7 +41,7 @@ def reverse_list(list)
         list = list.next_node
     end
 
-    return new_list
+    return stack.data # "new_list" also works but is not a linkedlist
 end
 
 def print_values(list_node)
