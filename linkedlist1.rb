@@ -34,7 +34,6 @@ end
 
 def reverse_list(list)
     new_list = nil
-    @data = list
 
     while list
         new_list = LinkedListNode.new(list.value, new_list)
