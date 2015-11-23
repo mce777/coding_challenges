@@ -22,7 +22,7 @@ def reverse_list(list, previous=nil)
 
     while list
         previous = next_node.value
-        list.next_node
+        list = list.next_node
         return previous
     end
 
