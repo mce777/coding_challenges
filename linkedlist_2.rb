@@ -20,13 +20,11 @@ end
 
 def reverse_list(list, previous=nil)
 
-
     while list
       list.next_node = previous
       list = list.next_node
       return list.value
     end
-
 
 end
 
