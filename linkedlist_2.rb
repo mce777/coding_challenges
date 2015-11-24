@@ -8,25 +8,26 @@ class LinkedListNode
 end
 
 # def reverse_list(list, previous=nil)
-#     #new_list = nil
 #
 #     while list
-#         new_list = LinkedListNode.new(list.value, new_list)
+#         previous = next_node.value
 #         list = list.next_node
+#         return previous
 #     end
 #
-#     return new_list
+#     return list
 # end
 
 def reverse_list(list, previous=nil)
 
+
     while list
-        previous = next_node.value
-        list = list.next_node
-        return previous
+      list.next_node = previous
+      list = list.next_node
+      return list.value
     end
 
-    return list
+
 end
 
 def print_values(list_node)
@@ -38,8 +39,6 @@ def print_values(list_node)
     print_values(list_node.next_node)
   end
 end
-
-
 
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
