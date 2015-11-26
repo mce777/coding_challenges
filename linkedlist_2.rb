@@ -9,10 +9,10 @@ end
 
 def reverse_list(list, previous=nil)
     while list != nil
-      old_next_node = list.next_node
-      list.next_node = previous
-      previous = list
-      list = old_next_node
+      old_next_node = list.next_node # first store the next_node
+      list.next_node = previous # now convert to previous
+      previous = list # previous is now current list
+      list = old_next_node # now continue with rest of linkedlist
     end
 
     return previous
