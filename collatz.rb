@@ -1,20 +1,26 @@
+
 def collatz(num)
+  value = 1
 
-  new_ary = []
-  new_ary.push(num) #initial number
+  num.times do
+    new_ary = []
+    new_ary.push(value) #initial number
 
-  while num != 1
-    if num % 2 == 0
-      num = num/2
-      new_ary.push(num)
-    else
-      num = 3*num +1
-      new_ary.push(num)
+    while value != 1
+      if value % 2 == 0
+        value = value/2
+        new_ary.push(value)
+      else
+        value = 3*value +1
+        new_ary.push(value)
+      end
     end
 
-  end
-  puts new_ary.inspect #displays the num's sequence
+    value = value + 1
+    puts new_ary.inspect #displays the num's sequence
+
+  end #n.times
 
 end
 
-collatz(7)
+collatz(5)
