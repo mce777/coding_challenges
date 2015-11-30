@@ -1,3 +1,4 @@
+# image blur 1
 class Image
 	# attr_writer :value
 

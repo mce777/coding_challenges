@@ -1,9 +1,10 @@
+# image blur 2, alt version using Marshal load/dump
 class Image
 
 	def initialize(grid)
 		@grid = grid
 	end
-    
+
     # the orig set of numbers
 	def output_image
 		@grid.each do |i|
@@ -11,14 +12,14 @@ class Image
 				print "#{x} "
 			end
 		puts
-		end	
+		end
 	end
-	
+
 	# image blur method
 	def blur_image2
 		# creating copy of grid
 		@new_ary = Marshal.load( Marshal.dump(@grid) )
-		
+
 		# looping through new_ary instead of grid
 		@new_ary.each_with_index do |row, row_index|
 			row.each_with_index do |pixel, col_index|
@@ -42,7 +43,7 @@ class Image
 				end
 			end
 		return Image.new(@new_ary)
-		end	
+		end
 
 	end
 
@@ -57,15 +58,15 @@ class Image
 				end
 				if x == 7
 					print "#{1} "
-				end	
+				end
 			end
-		puts	
-		end	
+		puts
+		end
 	end
 
 
 end
-	
+
 
 image = Image.new([
   [0, 0, 0, 0],
@@ -82,5 +83,3 @@ image.new_blur
 # test if orig grid has been changed
 puts "- - - -"
 image.output_image
-
-
