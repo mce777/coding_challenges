@@ -1,26 +1,31 @@
-
 def collatz(num)
-  value = 1
 
-  num.times do
-    new_ary = []
-    new_ary.push(value) #initial number
+  new_ary = []
+  new_ary.push(num) #initial number
 
-    while value != 1
-      if value % 2 == 0
-        value = value/2
-        new_ary.push(value)
-      else
-        value = 3*value +1
-        new_ary.push(value)
-      end
+  while num != 1
+    if num % 2 == 0
+      num = num/2
+      new_ary.push(num)
+    else
+      num = 3*num +1
+      new_ary.push(num)
     end
+  end
 
-    value = value + 1
-    puts new_ary.inspect #displays the num's sequence
-
-  end #n.times
+  return new_ary.length
 
 end
 
-collatz(5)
+def longest(a,b)
+  arr = []
+  while a <= b
+    n = collatz(a)
+    a = a + 1
+    arr.push(n)
+  end
+  puts "#{arr.index(arr.max)+1} has the longest Collatz sequence (#{arr.max})"
+end
+
+
+longest(1,1000)
