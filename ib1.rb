@@ -11,8 +11,9 @@ class Image
 				print "#{x} "
 			end
 		puts
-		end	
+		end
 	end
+
 end
 
 image = Image.new([
@@ -23,8 +24,3 @@ image = Image.new([
 ])
 
 image.output_image
-
-
-
-
-
